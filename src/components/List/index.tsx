@@ -1,3 +1,5 @@
+import './style.scss';
+
 const List = () => {
   const tasks = [
     {
@@ -14,11 +16,11 @@ const List = () => {
     },
   ];
   return (
-    <aside>
+    <aside className='listaTarefas'>
       <h2>Studies of the day</h2>
       <ul>
         {tasks.map((task, index) => (
-          <li key={index}>
+          <li key={index} className='item'>
             <h3>{task.task}</h3>
             <span>{task.time}</span>
           </li>
