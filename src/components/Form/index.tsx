@@ -1,10 +1,10 @@
 import Button from '../Button';
-import './style.scss';
+import style from './Form.module.scss';
 
 const Form = () => {
   return (
-    <form className='novaTarefa'>
-      <div className='inputContainer'>
+    <form className={style.novaTarefa}>
+      <div className={style.inputContainer}>
         <label htmlFor='tarefa'>Add a new study bro</label>
         <input
           type='text'
@@ -14,7 +14,7 @@ const Form = () => {
           required
         />
       </div>
-      <div className='inputContainer'>
+      <div className={style.inputContainer}>
         <label htmlFor='time'>Time</label>
         <input
           type='time'
