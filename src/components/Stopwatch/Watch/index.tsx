@@ -1,9 +1,13 @@
+import style from './Watch.module.css';
+
 export default function Watch() {
-  <>
-    <span>0</span>
-    <span>0</span>
-    <span>:</span>
-    <span>0</span>
-    <span>0</span>
-  </>;
+  return (
+    <>
+      <span className={style.relogioNumero}>0</span>
+      <span className={style.relogioNumero}>0</span>
+      <span className={style.relogioDivisao}>:</span>
+      <span className={style.relogioNumero}>0</span>
+      <span className={style.relogioNumero}>0</span>
+    </>
+  );
 }
