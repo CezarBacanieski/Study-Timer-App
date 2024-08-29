@@ -7,9 +7,10 @@ import { timeToSeconds } from '../../common/utils/time';
 
 interface StopwatchProps {
   selected: ITask | undefined;
+  finishTask: () => void;
 }
 
-export default function Stopwatch({ selected }: StopwatchProps) {
+export default function Stopwatch({ selected, finishTask }: StopwatchProps) {
   const [time, setTime] = useState<number>();
 
   useEffect(() => {
@@ -24,6 +25,7 @@ export default function Stopwatch({ selected }: StopwatchProps) {
         setTime(count - 1);
         return regressive(count - 1);
       }
+      finishTask();
     }, 1000);
   }
 
