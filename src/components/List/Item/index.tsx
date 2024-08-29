@@ -4,6 +4,7 @@ interface ItemProps {
   task: string;
   time: string;
 }
+
 export default function Item({ task, time }: ItemProps) {
   return (
     <li className={style.item}>

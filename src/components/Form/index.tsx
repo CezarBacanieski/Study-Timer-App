@@ -1,15 +1,23 @@
 import React, { useState } from 'react';
 import Button from '../Button';
 import style from './Form.module.scss';
+import { ITask } from '../../types/ITask';
 
-function addTask(event: React.FormEvent<HTMLFormElement>) {
-  event.preventDefault();
-  console.log('state');
+interface IForms {
+  setTasks: React.Dispatch<React.SetStateAction<ITask[]>>;
 }
 
-function Form() {
+function Form({ setTasks }: IForms) {
   const [task, setTask] = useState<string>('');
-  const [time, setTime] = useState<string>('06:00');
+  const [time, setTime] = useState<string>('00:00');
+
+  const addTask = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setTasks((prevTasks) => [...prevTasks, { task, time }]);
+
+    setTask('');
+    setTime('00:00');
+  };
 
   return (
     <form className={style.novaTarefa} onSubmit={addTask}>
@@ -35,11 +43,10 @@ function Form() {
           name='time'
           id='time'
           min='00:00:00'
-          max='04:00:00'
           required
         />
       </div>
-      <Button text='Add' />
+      <Button text='Add' type='submit' />
     </form>
   );
 }
