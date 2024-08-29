@@ -4,15 +4,16 @@ import style from './List.module.scss';
 
 interface ListProps {
   tasks: ITask[];
+  selectTask: (selectedTask: ITask) => void;
 }
 
-function List({ tasks }: ListProps) {
+function List({ tasks, selectTask }: ListProps) {
   return (
     <aside className={style.listaTarefas}>
       <h2>Studies of the day</h2>
       <ul>
-        {tasks.map((item, index) => (
-          <Item {...item} key={index} />
+        {tasks.map((item) => (
+          <Item {...item} key={item.id} selectTask={selectTask} />
         ))}
       </ul>
     </aside>
