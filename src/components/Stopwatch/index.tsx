@@ -35,7 +35,7 @@ export default function Stopwatch({ selected, finishTask }: StopwatchProps) {
       <div className={style.relogioWrapper}>
         <Watch time={time} />
       </div>
-      <Button text='Start' onClick={regressive(time)} />
+      <Button text='Start' onClick={() => regressive(time!)} />
     </div>
   );
 }
