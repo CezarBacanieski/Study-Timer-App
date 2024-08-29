@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Button from '../Button';
 import style from './Form.module.scss';
 import { ITask } from '../../types/ITask';
+import {v4 as uuidv4} from 'uuid'
 
 interface IForms {
   setTasks: React.Dispatch<React.SetStateAction<ITask[]>>;
@@ -13,7 +14,10 @@ function Form({ setTasks }: IForms) {
 
   const addTask = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setTasks((prevTasks) => [...prevTasks, { task, time }]);
+    setTasks((prevTasks) => [
+      ...prevTasks,
+      { task, time, selected: false, completed: false, id: uuidv4() },
+    ]);
 
     setTask('');
     setTime('00:00');
