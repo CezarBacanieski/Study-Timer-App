@@ -11,7 +11,7 @@ interface StopwatchProps {
 
 export default function Stopwatch({ selected }: StopwatchProps) {
   const [time, setTime] = useState<number>();
-  
+
   useEffect(() => {
     if (selected?.time) {
       setTime(timeToSeconds(selected.time));
@@ -21,9 +21,8 @@ export default function Stopwatch({ selected }: StopwatchProps) {
   return (
     <div className={style.cronometro}>
       <p className={style.titulo}>Choose a card and start the stopwatch</p>
-      Time: {time}
       <div className={style.relogioWrapper}>
-        <Watch />
+        <Watch time={time}/>
       </div>
       <Button text='Start' />
     </div>
