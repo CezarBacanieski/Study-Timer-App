@@ -18,13 +18,22 @@ export default function Stopwatch({ selected }: StopwatchProps) {
     }
   }, [selected]);
 
+  function regressive(count: number = 0) {
+    setTimeout(() => {
+      if (count > 0) {
+        setTime(count - 1);
+        return regressive(count - 1);
+      }
+    }, 1000);
+  }
+
   return (
     <div className={style.cronometro}>
       <p className={style.titulo}>Choose a card and start the stopwatch</p>
       <div className={style.relogioWrapper}>
-        <Watch time={time}/>
+        <Watch time={time} />
       </div>
-      <Button text='Start' />
+      <Button text='Start' onClick={regressive(time)} />
     </div>
   );
 }
